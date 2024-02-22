@@ -2,6 +2,7 @@
 # Script to brute-force succeed with data ingest despite sporadic segmentation
 # faults with Kuzu data ingest especially exhibited during certain complex
 # (many distinct node pair types) REL tables. Intended to be used manually.
+# Relates to segmentation faults mentioned within issue: https://github.com/kuzudb/kuzu/issues/2920
 
 # Command to run
 COMMAND="poetry run python rtx_kg2_metanames_parquet_to_kuzu_copy_data_to_tables.py"
