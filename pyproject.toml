@@ -32,9 +32,9 @@ jupyterlab = "^4.0.0"
 # sets a cwd relative for the shell script below
 cwd = "src/notebooks"
 shell = """
-  python rtx_kg2_sample_and_schema_generation.py &&
-  python rtx_kg2_sample_json_to_parquet.py &&
-  python rtx_kg2_sample_parquet_to_kuzu.py
+  python create_rtx_kg2_kuzu_database/rtx_kg2_sample_and_schema_generation.py &&
+  python reate_rtx_kg2_kuzu_database/rtx_kg2_sample_json_to_parquet.py &&
+  python reate_rtx_kg2_kuzu_database/rtx_kg2_sample_parquet_to_kuzu.py
 """
 
 # defines a workflow for full rtx-kg2 kuzu data work
@@ -42,9 +42,9 @@ shell = """
 # sets a cwd relative for the shell script below
 cwd = "src/notebooks"
 shell = """
-  python rtx_kg2_sample_and_schema_generation.py &&
-  python rtx_kg2_full_json_to_parquet.py &&
-  python rtx_kg2_full_parquet_to_kuzu.py
+  python create_rtx_kg2_kuzu_database/rtx_kg2_sample_and_schema_generation.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_full_json_to_parquet.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_full_parquet_to_kuzu.py
 """
 
 # defines a workflow for full rtx-kg2 kuzu data work with metanames
@@ -52,11 +52,11 @@ shell = """
 # sets a cwd relative for the shell script below
 cwd = "src/notebooks"
 shell = """
-  python rtx_kg2_sample_and_schema_generation.py &&
-  python rtx_kg2_full_json_to_parquet.py &&
-  python rtx_kg2_metanames_parquet_for_kuzu.py &&
-  python rtx_kg2_metanames_parquet_to_kuzu_create_tables.py &&
-  ingest_loop_for_segfaults.sh
+  python create_rtx_kg2_kuzu_database/rtx_kg2_sample_and_schema_generation.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_full_json_to_parquet.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_for_kuzu.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_to_kuzu_create_tables.py &&
+  create_rtx_kg2_kuzu_database/ingest_loop_for_segfaults.sh
 """
 
 [build-system]

@@ -24,7 +24,7 @@ from typing import Any, Dict, Generator, List
 import ijson
 import requests
 from genson import SchemaBuilder
-from rtx_kg2_functions import (
+from notebooks.rtx_kg2_functions import (
     count_items_under_top_level_name,
     download_file,
     find_top_level_names,
@@ -33,7 +33,7 @@ from rtx_kg2_functions import (
 
 # +
 # set data to be used throughout notebook
-data_dir = "data"
+data_dir = "../data"
 source_data_url = "https://github.com/ncats/translator-lfs-artifacts/raw/main/files/kg2c_lite_2.8.4.json.gz"
 target_data = f"{data_dir}/{pathlib.Path(source_data_url).name}"
 target_extracted_data = f"{data_dir}/{pathlib.Path(source_data_url).stem}"

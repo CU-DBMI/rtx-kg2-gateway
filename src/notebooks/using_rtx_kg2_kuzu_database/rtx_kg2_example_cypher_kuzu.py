@@ -22,13 +22,13 @@ import pathlib
 import tarfile
 
 import kuzu
-from rtx_kg2_functions import download_file, extract_tar_gz
 
+from notebooks.rtx_kg2_functions import download_file, extract_tar_gz
 # -
 
 # set some variables for the work below
 source_data_url = "https://github.com/CU-DBMI/rtx-kg2-gateway/releases/download/v0.0.1/kg2c_lite_2.8.4.full.with-metanames.dataset.kuzu.tar.gz"
-target_dir = "data"
+target_dir = "../data"
 target_database_path = f"{target_dir}/kg2c_lite_2.8.4.full.with-metanames.dataset.kuzu"
 
 pathlib.Path(target_dir).mkdir(exist_ok=True)

@@ -28,7 +28,7 @@ import pyarrow as pa
 import requests
 from genson import SchemaBuilder
 from pyarrow import parquet
-from rtx_kg2_functions import (
+from notebooks.rtx_kg2_functions import (
     count_items_under_top_level_name,
     drop_table_if_exists,
     find_top_level_names,
@@ -41,7 +41,7 @@ from rtx_kg2_functions import (
 
 # set data to be used throughout notebook
 chunk_size = 1
-data_dir = "data"
+data_dir = "../data"
 parquet_dir = f"{data_dir}/"
 source_data_url = "https://github.com/ncats/translator-lfs-artifacts/raw/main/files/kg2c_lite_2.8.4.json.gz"
 target_extracted_sample_data = f"{data_dir}/{pathlib.Path(source_data_url).name.replace('.json.gz', '.sample.json')}"
