@@ -56,7 +56,7 @@ shell = """
   python create_rtx_kg2_kuzu_database/rtx_kg2_full_json_to_parquet.py &&
   python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_for_kuzu.py &&
   python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_to_kuzu_create_tables.py &&
-  create_rtx_kg2_kuzu_database/ingest_loop_for_segfaults.sh
+  python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_to_kuzu_copy_data_to_tables.py
 """
 
 [build-system]
