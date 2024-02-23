@@ -10,7 +10,7 @@ Please find a brief overview of these technologies below for a better understand
 
 ### Graph Database Technologies
 
-- [Kuzu](https://github.com/kuzudb/kuzu): Kuzu is an embeddable property graph database system which provides  querying capabilities through [Cypher](https://en.wikipedia.org/wiki/Cypher_(query_language)). Kuzu includes a [Python package](https://pypi.org/project/kuzu/) and related API which enables local queries.
+- [Kuzu](https://github.com/kuzudb/kuzu): Kuzu is an embeddable property graph database system which provides  querying capabilities through [Cypher](<https://en.wikipedia.org/wiki/Cypher_(query_language)>). Kuzu includes a [Python package](https://pypi.org/project/kuzu/) and related API which enables local queries.
 
 ## Installation
 

@@ -24,6 +24,7 @@ from typing import Any, Dict, Generator, List
 import ijson
 import requests
 from genson import SchemaBuilder
+
 from notebooks.rtx_kg2_functions import (
     count_items_under_top_level_name,
     download_file,

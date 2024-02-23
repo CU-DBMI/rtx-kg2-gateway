@@ -28,6 +28,7 @@ import pyarrow as pa
 import requests
 from genson import SchemaBuilder
 from pyarrow import parquet
+
 from notebooks.rtx_kg2_functions import (
     count_items_under_top_level_name,
     drop_table_if_exists,
