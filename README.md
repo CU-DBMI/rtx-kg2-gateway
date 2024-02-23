@@ -1,6 +1,16 @@
 # RTX-KG2 Gateway
 
-Enabling RTX-KG2 data access through various means.
+Enabling [RTX-KG2](https://github.com/RTXteam/RTX-KG2) data access through various means.
+
+## Overview
+
+[RTX-KG2](https://github.com/RTXteam/RTX-KG2) provides a knowledge graph composed of many different data sources.
+The output data from the RTX-KG2 project can benefit from the use of additional specialized graph database tools for analysis purposes.
+Please find a brief overview of these technologies below for a better understanding of how they're used in context with the RTX-KG2 data.
+
+### Graph Database Technologies
+
+- [Kuzu](https://github.com/kuzudb/kuzu): Kuzu is an embeddable property graph database system which provides  querying capabilities through [Cypher](https://en.wikipedia.org/wiki/Cypher_(query_language)). Kuzu includes a [Python package](https://pypi.org/project/kuzu/) and related API which enables local queries.
 
 ## Installation
 
