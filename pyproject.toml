@@ -1,0 +1,78 @@
+[tool.poetry]
+name = "rtx-kg2-gateway"
+version = "0.0.1"
+description = "Enabling RTX-KG2 data access through various means."
+authors = ["CU DBMI community"]
+license = "BSD-3-Clause"
+readme = "README.md"
+packages = [{include = "notebooks", from="src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+poetry = "^1.7.1"
+ijson = "^3.2.3"
+genson = "^1.2.2"
+requests = "^2.31.0"
+awkward = "^2.6.0"
+pyarrow = "^15.0.0"
+pandas = "^2.2.0"
+kuzu = "^0.2.0"
+poethepoet = "^0.24.4"
+duckdb = "^0.10.0"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.0"
+black = "^24.0.1"
+jupyterlab-code-formatter = "^2.2.1"
+jupytext = "^1.16.0"
+jupyterlab = "^4.0.0"
+
+# defines a workflow for sample rtx-kg2 kuzu data work
+[tool.poe.tasks.notebook_sample_data_generation]
+# sets a cwd relative for the shell script below
+cwd = "src/notebooks"
+shell = """
+  python create_rtx_kg2_kuzu_database/rtx_kg2_sample_and_schema_generation.py &&
+  python reate_rtx_kg2_kuzu_database/rtx_kg2_sample_json_to_parquet.py &&
+  python reate_rtx_kg2_kuzu_database/rtx_kg2_sample_parquet_to_kuzu.py
+"""
+
+# defines a workflow for full rtx-kg2 kuzu data work
+[tool.poe.tasks.notebook_full_data_generation]
+# sets a cwd relative for the shell script below
+cwd = "src/notebooks"
+shell = """
+  python create_rtx_kg2_kuzu_database/rtx_kg2_sample_and_schema_generation.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_full_json_to_parquet.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_full_parquet_to_kuzu.py
+"""
+
+# defines a workflow for full rtx-kg2 kuzu data work with metanames
+[tool.poe.tasks.notebook_full_data_generation_with_metanames]
+# sets a cwd relative for the shell script below
+cwd = "src/notebooks"
+shell = """
+  python create_rtx_kg2_kuzu_database/rtx_kg2_sample_and_schema_generation.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_full_json_to_parquet.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_for_kuzu.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_to_kuzu_create_tables.py &&
+  python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_to_kuzu_copy_data_to_tables.py
+"""
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.jupytext]
+formats = "ipynb,py:light"
+
+[tool.vulture]
+min_confidence = 80
+paths = ["src/notebooks"]
+sort_by_size = true
+verbose = true
+
+[tool.isort]
+profile = "black"
+
+[tool.setuptools_scm]
