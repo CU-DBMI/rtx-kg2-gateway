@@ -14,7 +14,7 @@
 
 # # Example Cypher Read of RTX-KG2 with Kuzu
 #
-# Related example found online at: [https://colab.research.google.com/drive/1XGZf2xhFwvNOFCXVCi8pAPvpu0NOMmzi](https://colab.research.google.com/drive/1XGZf2xhFwvNOFCXVCi8pAPvpu0NOMmzi)
+# Use pip install found below for standalone use through external environments (such as Google Colab).
 
 # for installation in external runtime environments
 # !pip install "git+https://github.com/CU-DBMI/rtx-kg2-gateway"
