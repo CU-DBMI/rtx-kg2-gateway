@@ -257,3 +257,13 @@ def gather_table_names_from_parquet_path(
             """
             ).fetchall()
         ]
+
+
+def infer_generic_json_schema_from_object(json_object: dict) -> dict:
+    """
+    Infer the schema from sample json using genson.
+    """
+    builder = SchemaBuilder()
+    builder.add_schema({"type": "object", "properties": {}})
+    builder.add_object(json_object)
+    return builder.to_json(indent=2)
