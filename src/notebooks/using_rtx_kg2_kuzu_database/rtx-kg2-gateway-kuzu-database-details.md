@@ -8,7 +8,7 @@ Tables below are provided as either NODE or REL_GROUP tables.
 [REL_GROUPS](https://kuzudb.com/docusaurus/cypher/data-definition/create-table#create-rel-table-group) are specialized tables within Kuzu databases that are collections of NODE type pairs.
 REL_GROUPS are shown by name below which can be referenced as part of Cypher queries (instead of the more verbose and many NODE type pairs).
 
-### NODE Tables 
+### NODE Tables
 
 #### Example NODE Data and JSON Schema
 
@@ -66,7 +66,6 @@ REL_GROUPS are shown by name below which can be referenced as part of Cypher que
 </td>
 </tr>
 </table>
-
 
 #### NODE Names
 
@@ -136,8 +135,7 @@ REL_GROUPS are shown by name below which can be referenced as part of Cypher que
 | Publication                     | NODE   |
 | Treatment                       | NODE   |
 
-
-### REL_GROUP Tables 
+### REL_GROUP Tables
 
 #### Example REL_GROUP Data and JSON Schema
 
@@ -205,7 +203,6 @@ REL_GROUPS are shown by name below which can be referenced as part of Cypher que
 </td>
 </tr>
 </table>
-
 
 #### REL_GROUP Names
 
