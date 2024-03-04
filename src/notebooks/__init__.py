@@ -1,1 +1,1 @@
-from .rtx_kg2_functions import *
+import rtx_kg2_functions
