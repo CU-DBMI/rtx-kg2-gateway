@@ -33,6 +33,7 @@ from notebooks import (
     extract_tar_gz,
     infer_generic_json_schema_from_object,
 )
+
 # -
 
 # set some variables for the work below
@@ -90,7 +91,7 @@ example_node = kz_conn.execute(
     /* match on arbitrary node */
     MATCH (node)
     WHERE node.id = 'UMLS:C2459634'
-    RETURN 
+    RETURN
         node.id,
         node.name,
         node.category,
@@ -108,7 +109,7 @@ example_rel = kz_conn.execute(
     /* match on arbitrary relationship */
     MATCH ()-[relationship:treats]-()
     WHERE relationship.id = 19799062
-    RETURN 
+    RETURN
         relationship.domain_range_exclusion,
         relationship.id,
         relationship.predicate,
@@ -128,7 +129,7 @@ kz_conn.execute(
     """
     MATCH (d:Disease)
     WHERE d.name = "Down syndrome"
-    RETURN 
+    RETURN
         d.id,
         d.name,
         d.category,
@@ -142,7 +143,7 @@ kz_conn.execute(
     """
     MATCH (d:Disease)-[r]-(g:Gene)
     WHERE d.name = "Down syndrome"
-    RETURN 
+    RETURN
         d.id,
         d.name,
         d.category,
