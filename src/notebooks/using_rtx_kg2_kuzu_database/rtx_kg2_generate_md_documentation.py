@@ -12,7 +12,7 @@
 #     name: python3
 # ---
 
-# # Example Cypher Read of RTX-KG2 with Kuzu
+# # Generate Markdown Documentation on RTX-KG2 with Kuzu
 #
 # Use pip install found below for standalone use through external environments (such as Google Colab).
 
@@ -33,7 +33,6 @@ from notebooks import (
     extract_tar_gz,
     infer_generic_json_schema_from_object,
 )
-
 # -
 
 # set some variables for the work below
