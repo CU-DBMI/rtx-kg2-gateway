@@ -11,6 +11,7 @@ Please find a brief overview of these technologies below for a better understand
 ### Graph Database Technologies
 
 - [Kuzu](https://github.com/kuzudb/kuzu): Kuzu is an embeddable property graph database system which provides  querying capabilities through [Cypher](<https://en.wikipedia.org/wiki/Cypher_(query_language)>). Kuzu includes a [Python package](https://pypi.org/project/kuzu/) and related API which enables local queries.
+  - See [rtx-kg2-gateway-kuzu-database-details.md](src/notebooks/using_rtx_kg2_kuzu_database/rtx-kg2-gateway-kuzu-database-details.md) for more information on the database schema and data.
 
 ## Installation
 
