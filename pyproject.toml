@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rtx-kg2-gateway"
-version = "0.0.1"
+version = "0.0.2"
 description = "Enabling RTX-KG2 data access through various means."
 authors = ["CU DBMI community"]
 license = "BSD-3-Clause"
@@ -16,7 +16,7 @@ requests = "^2.31.0"
 awkward = "^2.6.0"
 pyarrow = "^15.0.0"
 pandas = "^2.2.0"
-kuzu = "^0.2.0"
+kuzu = "^0.3.0"
 poethepoet = "^0.24.4"
 duckdb = "^0.10.0"
 tabulate = "^0.9.0"
@@ -57,7 +57,8 @@ shell = """
   python create_rtx_kg2_kuzu_database/rtx_kg2_full_json_to_parquet.py &&
   python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_for_kuzu.py &&
   python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_to_kuzu_create_tables.py &&
-  python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_to_kuzu_copy_data_to_tables.py
+  python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_to_kuzu_copy_data_to_tables.py &&
+  tar -czvf ./data/kg2c_lite_2.8.4.full.with-metanames.dataset.kuzu.tar.gz ./data/kg2c_lite_2.8.4.full.with-metanames.dataset.kuzu 
 """
 
 [build-system]
