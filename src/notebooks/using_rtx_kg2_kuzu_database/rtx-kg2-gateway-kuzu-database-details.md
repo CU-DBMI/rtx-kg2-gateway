@@ -67,7 +67,6 @@ REL_GROUPS are shown by name below which can be referenced as part of Cypher que
 </tr>
 </table>
 
-
 #### NODE Names
 
 | name                            | type   |
@@ -135,7 +134,6 @@ REL_GROUPS are shown by name below which can be referenced as part of Cypher que
 | Procedure                       | NODE   |
 | RetrievalSource                 | NODE   |
 | Treatment                       | NODE   |
-
 
 ### REL_GROUP Tables
 
@@ -205,7 +203,6 @@ REL_GROUPS are shown by name below which can be referenced as part of Cypher que
 </td>
 </tr>
 </table>
-
 
 #### REL_GROUP Names
 

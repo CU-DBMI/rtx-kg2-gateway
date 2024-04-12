@@ -203,5 +203,3 @@ for path, table_name_column, primary_key in [
         )
         kz_conn.execute(create_stmt)
 # -
-
-

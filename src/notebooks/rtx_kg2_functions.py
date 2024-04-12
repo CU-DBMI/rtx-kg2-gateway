@@ -30,7 +30,6 @@ import requests
 from genson import SchemaBuilder
 from pyarrow import parquet
 
-
 # -
 
 

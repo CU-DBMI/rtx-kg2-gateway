@@ -58,7 +58,7 @@ shell = """
   python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_for_kuzu.py &&
   python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_to_kuzu_create_tables.py &&
   python create_rtx_kg2_kuzu_database/rtx_kg2_metanames_parquet_to_kuzu_copy_data_to_tables.py &&
-  tar -czvf ./data/kg2c_lite_2.8.4.full.with-metanames.dataset.kuzu.tar.gz ./data/kg2c_lite_2.8.4.full.with-metanames.dataset.kuzu 
+  tar -czvf ./data/kg2c_lite_2.8.4.full.with-metanames.dataset.kuzu.tar.gz ./data/kg2c_lite_2.8.4.full.with-metanames.dataset.kuzu
 """
 
 [build-system]
