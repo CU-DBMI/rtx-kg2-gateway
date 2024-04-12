@@ -33,7 +33,6 @@ from notebooks import (
     extract_tar_gz,
     infer_generic_json_schema_from_object,
 )
-
 # -
 
 # set some variables for the work below
