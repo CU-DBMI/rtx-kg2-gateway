@@ -76,13 +76,12 @@ df_table_names_by_type
 example_node = (
     kz_conn.execute(
         """
-    /* match on arbitrary node */
-    MATCH (node)
-    WHERE node.id = 'UMLS:C2459634'
-    RETURN
-        node.*
-    LIMIT 1;
-    """
+        /* match on arbitrary node */
+        MATCH (node)
+        WHERE node.id = 'UMLS:C2459634'
+        RETURN
+            node.*;
+        """
     )
     .get_as_df()
     .iloc[0]
@@ -96,13 +95,12 @@ example_node
 example_rel = (
     kz_conn.execute(
         """
-    /* match on arbitrary relationship */
-    MATCH ()-[r:treats]-()
-    WHERE r.id = 19799062
-    RETURN
-        r.*
-    LIMIT 1;
-    """
+        /* match on arbitrary relationship */
+        MATCH ()-[r:treats]-()
+        WHERE r.id = 19799062
+        RETURN
+            r.*;
+        """
     )
     .get_as_df()
     .iloc[0]
