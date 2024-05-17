@@ -71,46 +71,47 @@ df_table_names_by_type = kz_conn.execute(
 ).get_as_df()
 df_table_names_by_type
 
-
-def filter_entity_metadata(entity_json: dict) -> dict:
-    """
-    Filters the metadata from Kuzu cypher entity.
-    """
-    return {
-        key: value
-        for key, value in entity_json.items()
-        # exclude offset and node label
-        if not key.startswith("_")
-    }
-
-
+# +
 # gather node entity example from Kuzu database
-example_node = filter_entity_metadata(
-    entity_json=kz_conn.execute(
+example_node = (
+    kz_conn.execute(
         """
         /* match on arbitrary node */
         MATCH (node)
         WHERE node.id = 'UMLS:C2459634'
-        RETURN *
-        LIMIT 1;
+        RETURN
+            node.*;
         """
-    ).get_next()[0]
+    )
+    .get_as_df()
+    .iloc[0]
+    .to_dict()
 )
+
 example_node
 
-# gather rel entity example from Kuzu database
-example_rel = filter_entity_metadata(
-    entity_json=kz_conn.execute(
+# +
+""  # gather rel entity example from Kuzu database
+example_rel = (
+    kz_conn.execute(
         """
         /* match on arbitrary relationship */
         MATCH ()-[r:treats]-()
         WHERE r.id = 19799062
-        RETURN r
-        LIMIT 1;
+        RETURN
+            r.*;
         """
-    ).get_next()[0]
+    )
+    .get_as_df()
+    .iloc[0]
+    .to_dict()
 )
+
+# form a dictionary showing the schema and values together
 example_rel
+
+
+# -
 
 
 def generate_entity_example_html_table(entity_json: dict) -> str:

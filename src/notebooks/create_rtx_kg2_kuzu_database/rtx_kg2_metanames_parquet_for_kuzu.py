@@ -87,7 +87,8 @@ for path, table_name_column in [
     pathlib.Path(parquet_metanames_object_base).mkdir(exist_ok=True)
 
     for table_name in gather_table_names_from_parquet_path(
-        parquet_path=path, column_with_table_name=table_name_column
+        parquet_path=f"{str(pathlib.Path(path).resolve())}/*",
+        column_with_table_name=table_name_column,
     ):
         # create metanames / objects using cypher safe name and dir
         cypher_safe_table_name = table_name.split(":")[1]
@@ -130,6 +131,7 @@ for path, table_name_column in [
                             SELECT *
                             FROM read_parquet('{path}/*')
                             WHERE {table_name_column}='{table_name}'
+                            ORDER BY ALL
                             LIMIT {chunk_size} OFFSET {offset};
                             """
                         ).arrow(),
@@ -206,7 +208,8 @@ for path, table_name_column in [
                                 WHERE {table_name_column}='{table_name}'
                                 AND split_part(subj_node.category, ':', 2) = '{subj}'
                                 AND split_part(obj_node.category, ':', 2) = '{obj}'
-                                LIMIT {chunk_size} OFFSET {offset}
+                                ORDER BY ALL
+                                LIMIT {chunk_size} OFFSET {offset};
                             """
                             ).arrow(),
                             where=f"{parquet_metanames_metaname_node_rel_base}/{cypher_safe_table_name}.{subj}_{obj}.{idx}.parquet",
@@ -228,17 +231,17 @@ def gather_parquet_dataset_size_from_path(parquet_path: str):
 
 for source, target in [
     [
-        "data/kg2c_lite_2.8.4.full.dataset.parquet/nodes/*",
-        "data/kg2c_lite_2.8.4.full.with-metanames.dataset.parquet/nodes/**",
+        "../data/kg2c_lite_2.8.4.full.dataset.parquet/nodes/*",
+        "../data/kg2c_lite_2.8.4.full.with-metanames.dataset.parquet/nodes/**",
     ],
     [
-        "data/kg2c_lite_2.8.4.full.dataset.parquet/edges/*",
-        "data/kg2c_lite_2.8.4.full.with-metanames.dataset.parquet/edges/**",
+        "../data/kg2c_lite_2.8.4.full.dataset.parquet/edges/*",
+        "../data/kg2c_lite_2.8.4.full.with-metanames.dataset.parquet/edges/**",
     ],
 ]:
     if gather_parquet_dataset_size_from_path(
-        source
-    ) != gather_parquet_dataset_size_from_path(target):
+        pathlib.Path(source).resolve()
+    ) != gather_parquet_dataset_size_from_path(pathlib.Path(target).resolve()):
         raise ValueError(
             f"Inequal number of rows from parquet source {source} to metanames target {target}."
         )

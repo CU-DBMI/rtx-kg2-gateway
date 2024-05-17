@@ -23,6 +23,7 @@ import pathlib
 import shutil
 from typing import Any, Dict, Generator, List, Literal
 
+import duckdb
 import ijson
 import kuzu
 import requests

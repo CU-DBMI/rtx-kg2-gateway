@@ -66,16 +66,6 @@ Existing tasks:
 - `notebook_full_data_generation`: generates full dataset and adds to a kuzu database.
 - `notebook_full_data_generation_with_metanames`: generates full dataset with metanames specificity and adds to a kuzu database in similar fashion.
 
-> ⚠ Suggested hardware resources:
-> Kuzu data ingest may require memory and storage beyond that of common laptop constraint.
-> A recent run `notebook_full_data_generation_with_metanames` involved the use of the following resources:
->
-> - Storage: ~40 GB (JSON, Parquet, Kuzu, and compressed files)
-> - Memory: ~32 GB (GCP VM [`e2-standard-16`](https://cloud.google.com/compute/docs/general-purpose-machines#e2-standard) was used for this purpose).
-> - CPU: 4 vCPU (see VM note above).
->
-> Further investigation is needed in order to validate computer resources necessary for these tasks.
-
 ## Citation and Acknowledgements
 
 Data used by this repo includes [RTX-KG2](https://github.com/RTXteam/RTX-KG2) which was published at the [NCATS Biomedical Data Translator repository](https://github.com/ncats/translator-lfs-artifacts). Special thanks goes to those mentioned in the [RTX-KG2 credits](https://github.com/RTXteam/RTX-KG2?tab=readme-ov-file#credits). Further data acknowledgments may be found within the [data sources documentation](https://github.com/RTXteam/RTX-KG2?tab=readme-ov-file#what-data-sources-are-used-in-kg2).
